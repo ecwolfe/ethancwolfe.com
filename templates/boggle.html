@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title%} Project: Boggle {% endblock %}
+
+{% block header %}
+		<h1>
+			Boggle Solver
+		</h1>
+{% endblock %}
+
+{% block content %}
+	
+		<h2>
+	
+		</h2>
+		
+		<div id="board">
+		<table>
+		{% for b in bb %}
+		<tr>
+			{% for c in b %}
+			<td> {{ c }} </td>
+			{% endfor %}
+		</tr>		
+		{% endfor %}
+		</table>
+	
+		<br>
+
+		<form action="" method="post">
+		  <input type="text" name="uWord"></input>
+		  <input type="submit" value="Try Word"></input>
+		</form>
+
+		<form action="/boggle" method="post">
+		  <input type="submit" value="New game"></input>
+		</form>
+
+		</div>
+
+		<div id="machine">
+		{% for s in sol %}
+		<p>
+		{{ s }}
+		</p>
+		{% endfor %}
+		</div>
+
+		<div id="user">
+
+		<p>
+		LAB
+		MAP
+		SAMPLE
+		WORD
+		LIST
+		FOR
+		USER INPUT
+		</p>
+
+		</div>
+
+		
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+	<title> {% block title %}{% endblock %} - My Web Page </title>
+
+	{% endblock %}
+
+</head>
+
+<body>
+	<div id="header"> {% block header %}
+		
+	{% endblock %} </div>
+
+	<div id="navigation"> {% block navigation %}
+		<li><a href="/"><button>Profile</button></a> </li>
+		<li><a href="/resume"><button>Resume</button></a> </li>
+		<li><a href="/projects"><button>Projects</button></a> </li>
+		<li><a href="#"><button>Contact</button></a> </li>
+	{% endblock %} </div>
+
+	<div id="content"> {% block content %}
+		
+	
+	{% endblock %} </div>
+
+	<div id="footer"> {% block footer %}
+		Contact Info: <br>
+		E-mail: Ethan42Wolfe@gmail.com <br>
+	{% endblock %} </div>
+
+</body>
+
+</html>
