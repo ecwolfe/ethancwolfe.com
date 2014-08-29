@@ -8,6 +8,12 @@
 {% endblock %}
 
 {% block content %}
+		<script type = "text/javascript">
+		
+		var showSolutions = function() {
+			$("#machine").removeClass("hidden");
+		};
+		</script>
 
 		<div id="board">
 		<table>
@@ -22,18 +28,16 @@
 	
 		<br>
 
-		<form action="" method="post">
-		  <input type="text" name="uWord"></input>
-		  <input type="submit" value="Try Word"></input>
-		</form>
 
 		<form action="/boggle" method="post">
-		  <input type="submit" value="New game"></input>
+			<input type="hidden" value="whatever"></input>
+		 	<input type="submit" value="New game"></input>
 		</form>
 
 		</div>
 
-		<div id="machine">
+		<button onclick = "showSolutions()">Show solutions</button>
+		<div id="machine" class ="hidden">
 		{% for s in sol %}
 		<p>
 		{{ s }}
@@ -43,17 +47,9 @@
 
 		<div id="user">
 
-		<p>
-		LAB
-		MAP
-		SAMPLE
-		WORD
-		LIST
-		FOR
-		USER INPUT
-		</p>
-
 		</div>
+
+		
 
 		
 {% endblock %}

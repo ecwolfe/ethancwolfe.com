@@ -9,6 +9,7 @@ import monkey
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -23,17 +24,16 @@ def project():
 
 @app.route('/boggle', methods = ['GET', 'POST'])
 def boggle():
-	Boggle.clearGame()
-	boggleBoard = ''
-	solutions = ''
-	boggleBoard = Boggle.setupBoggle()
-	solutions = Boggle.playGame(boggleBoard)
+	b = Boggle.Boggle()
+	b.clearWordList()
 	if request.method=='POST':
-		Boggle.clearGame()
-		boggleBoard = Boggle.setupBoggle()
-		solutions = Boggle.playGame(boggleBoard)
-		#return render_template('boggle.html', bb = boggleBoard, sol = solutions)
-	return render_template('boggle.html', bb = boggleBoard, sol = solutions)
+		
+		bBoard = b.getBoard()
+		solutions = b.playGame()
+		return render_template('boggle.html', bb = bBoard, sol = solutions)
+	bBoard = b.getBoard()
+	solutions = b.playGame()
+	return render_template('boggle.html', bb = bBoard, sol = solutions)
 
 @app.route('/monkey', methods= ['GET','POST'])
 def markov():
