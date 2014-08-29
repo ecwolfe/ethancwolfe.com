@@ -6,7 +6,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import Boggle
 import monkey
-import threading
 
 app = Flask(__name__)
 
@@ -33,20 +32,22 @@ def boggle():
 		Boggle.clearGame()
 		boggleBoard = Boggle.setupBoggle()
 		solutions = Boggle.playGame(boggleBoard)
-		return render_template('boggle.html', bb = boggleBoard, sol = solutions)
+		#return render_template('boggle.html', bb = boggleBoard, sol = solutions)
 	return render_template('boggle.html', bb = boggleBoard, sol = solutions)
 
-@app.route('/monkey')
+@app.route('/monkey', methods= ['GET','POST'])
 def markov():
-	output = monkey.monkeyWrite(7,100,'Meta-excerpt.txt')
+	fIn = open("Meta-excerpt.txt", 'r')
+	output = monkey.monkeyWrite(7,100,fIn)
 	return render_template('monkey.html', re = output)
 
-"""
-@app.route('/boggle',methods = ['POST'])
-def reboggle():
-	boggleBoard = Boggle.setupBoggle()
-	solutions = Boggle.playGame(boggleBoard)
-	return render_template('boggle.html', bb = boggleBoard, sol = solutions)
-"""
+@app.route('/output', methods= ['GET','POST'])
+def output():
+	if request.method=='POST':
+		k = request.form['k']
+		length = request.form['length']
+		file = request.files['fileIn']
+		output = monkey.monkeyWrite(int(k),int(length),file)
+	return render_template('output.html', re = output)
 
 app.run(debug=True)

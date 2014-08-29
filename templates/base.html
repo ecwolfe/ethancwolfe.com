@@ -12,18 +12,19 @@
 </head>
 
 <body>
-	<div id="header"> {% block header %}
+	<div id="header"> 
+	{% block header %}
 		
 	{% endblock %} </div>
 
 	<div id="navigation"> {% block navigation %}
-		<li><a href="/"><button>Profile</button></a> </li>
-		<li><a href="/resume"><button>Resume</button></a> </li>
-		<li><a href="/projects"><button>Projects</button></a> </li>
-		<li><a href="#"><button>Contact</button></a> </li>
+		<p class="profile"><a href="/"><button>Profile</button></a> </p>
+		<p class="resume"><a href="/resume"><button>Resume</button></a> </p>
+		<p class="projects"><a href="/projects"><button>Projects</button></a> </p>
 	{% endblock %} </div>
 
-	<div id="content"> {% block content %}
+	<div id="content"> 
+	{% block content %}
 		
 	
 	{% endblock %} </div>

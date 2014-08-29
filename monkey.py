@@ -4,11 +4,9 @@
 import sys
 import random
 
-def monkeyWrite(k, length, sourceIn):
+def monkeyWrite(k, length, f):
 
 	source = ''
-
-	f = open(sourceIn, 'r')
 
 	for line in f:
 		source += line.rstrip('\n')

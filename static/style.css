@@ -1,3 +1,42 @@
+.left {
+ text-align: left;
+ float: left;
+}
+
+.middle {
+ text-align: center;
+}
+
+.right {
+ text-align: left;
+ float: right;
+}
+
+.frame {
+ width: 750px;
+}
+
+.profile {
+  position: fixed;
+  top: 75px;
+  left: 0px;
+  width: 150px;
+}
+
+.resume {
+  position: fixed;
+  top: 75px;
+  left: 100px;
+  width: 150px;
+}
+
+.projects {
+  position: fixed;
+  top: 75px;
+  left: 200px;
+  width: 150px;
+}
+
 #header {
   position: fixed;
   top: 0;
@@ -8,15 +47,10 @@
   padding: 10px;
 }
 
-#navigation {
-  position: fixed;
-  top: 140px;
-  left: 0px;
-  width: 150px;
-}
-
 #content {
-  margin-left: 200px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #machine {
@@ -51,8 +85,8 @@
   left: 0px;
   height: 90px;
   background-color: #ccc;
+  text-align: right;
   width: 100%;
-  padding: 10px;
 }
 
 #photo {

@@ -13,8 +13,6 @@ def clearGame():
 	dictionary = []
 	solvedWords = []
 
-
-
 def beenUsed(count):
 	for i in xrange(0,len(usedDice)):
 		if (count == usedDice[i]):

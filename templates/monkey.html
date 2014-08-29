@@ -8,17 +8,28 @@
 {% endblock %}
 
 {% block content %}
-	
-		<h2>
-			Metamorphasis
-		</h2>
 
 		<p>
-			This is some sample text generated from Metamorphasis by
+			The following is an sample output made by using an excerpt from Metamorphosis by Franz Kafka, and simlarity value of 7, and an output length of 100.
 		</p>
-		
+
 		<p>
 			{{ re }}
 		</p>
+
+		<p>
+			If you would like to use your own source and values, then upload a file of your chooseing and value.  BEWARE: long text or long output can take a long time to process and may time out so its best to keep one of these values low.
+		</p>
+
+		<p>
+			Choose a .txt file to use as your source, a value of simlarity, and the length of your output should be
+		</p>
+
+		<form action="/output" enctype="multipart/form-data" method="post">
+		  <input type="file" name="fileIn" size="30"></input>
+		  <input type="text" name="k" size="1"></input>
+		  <input type="text" name="length" size="5"></input>
+		  <input type="submit" value="Submit"></input>
+		</form>
 		
 {% endblock %}
