@@ -1,17 +1,10 @@
-.left {
- text-align: left;
- float: left;
+.column {
+  width: 33%;
+  float: left;
 }
-
-.middle {
- text-align: center;
+.date{
+  float: right;
 }
-
-.right {
- text-align: left;
- float: right;
-}
-
 .frame {
  width: 750px;
 }
@@ -117,4 +110,22 @@ button:active {
 body {
   margin-top: 150px;
   margin-bottom: 140px;
+}
+
+.hidden{
+  display: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+content: " ";
+display: table;
+}
+ 
+.clearfix:after {
+clear: both;
+}
+ 
+.clearfix {
+*zoom: 1;
 }
