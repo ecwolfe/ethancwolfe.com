@@ -4,11 +4,15 @@
 # 08/24/14
 
 from flask import Flask, render_template, url_for, request, redirect
+from werkzeug import secure_filename
 import Boggle
 import monkey
 
 app = Flask(__name__)
 
+@app.errorhandler(404)
+def page_notfound(error):
+	return render_template('error.html'), 404
 
 @app.route('/')
 def index():
@@ -27,7 +31,6 @@ def boggle():
 	b = Boggle.Boggle()
 	b.clearWordList()
 	if request.method=='POST':
-		
 		bBoard = b.getBoard()
 		solutions = b.playGame()
 		return render_template('boggle.html', bb = bBoard, sol = solutions)
@@ -46,8 +49,25 @@ def output():
 	if request.method=='POST':
 		k = request.form['k']
 		length = request.form['length']
-		file = request.files['fileIn']
-		output = monkey.monkeyWrite(int(k),int(length),file)
-	return render_template('output.html', re = output)
+		fil = request.files['fileIn']
+		try:
+			k = int(k)
+			length = int(length)
+			if k < 1 or length < 1:
+				output = "Opps! Let me explain better: \n Similarity should be a number from 1 to 10, \n Length should be how long you want the new document to be (100-500)"
+				return render_template('output.html', re = output, noError = False)
+		except ValueError:
+			output = "Opps! Let me explain better: \n Input values must be numbers"
+			return render_template('output.html', re = output, noError = False)
+		output = "Oh Dear! Something has gone completely wrong."
+		exten = fil.filename
+		if exten[-4:] == ".txt":
+			#fil = secure_filename(fil.filename)
+			output = monkey.monkeyWrite(int(k),int(length),fil)
+		else:
+			output = "Opps! Let me explain better: \n Your file must end in .txt"
+			return render_template('output.html', re = output, noError = False)
+		
+	return render_template('output.html', re = output, noError = True)
 
 app.run(debug=True)

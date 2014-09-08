@@ -5,7 +5,7 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
-	<title> {% block title %}{% endblock %} - My Web Page </title>
+	<title> {% block title %}{% endblock %} - ethancwolfe.com </title>
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
@@ -18,13 +18,16 @@
 	<div id="header"> 
 	{% block header %}
 		
-	{% endblock %} </div>
-
+	{% endblock %} 
+	
 	<div id="navigation"> {% block navigation %}
 		<p class="profile"><a href="/"><button>Profile</button></a> </p>
 		<p class="resume"><a href="/resume"><button>Resume</button></a> </p>
 		<p class="projects"><a href="/projects"><button>Projects</button></a> </p>
 	{% endblock %} </div>
+
+	</div>
+
 
 	<div id="content"> 
 	{% block content %}

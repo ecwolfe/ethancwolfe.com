@@ -1,63 +1,19 @@
+#machine {
+  float: right;
+}
+#ss { 
+ float: right;
+}
 .column {
   width: 33%;
   float: left;
 }
+
 .date{
   float: right;
 }
-.frame {
- width: 750px;
-}
-
-.profile {
-  position: fixed;
-  top: 75px;
-  left: 0px;
-  width: 150px;
-}
-
-.resume {
-  position: fixed;
-  top: 75px;
-  left: 100px;
-  width: 150px;
-}
-
-.projects {
-  position: fixed;
-  top: 75px;
-  left: 200px;
-  width: 150px;
-}
-
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 120px;
-  width: 100%;
-  background:#ccc;
-  padding: 10px;
-}
-
-#content {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#machine {
-  position: relative;
-  top: -200px;
-  float: right;
-  width: 200px;
-}
-
-#user {
-  position: relative;
-  top: -200px;
-  float: left;
-  width: 200px;
+#ngButton {
+  margin-left: 75px;
 }
 
 #board {
@@ -70,21 +26,70 @@
   font-family: Courier,monospace;
   font-size: 35px;
   vertical-align: middle;
+  z-index: -1;
+}
+
+#boggleBox {
+  height: 400px;
+}
+
+.space {
+  height: 400px;
+}
+
+#content {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 150px;
+}
+
+.resume {
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  width: 150px;
+}
+
+.projects {
+  position: absolute;
+  bottom: 0px;
+  left: 200px;
+  width: 150px;
+}
+
+#navigation {
+  position: absolute;
+  top: 150px
+}
+
+#header {
+  top: 0px;
+  height: 120px;
+  width: 950px;
+  background:#ccc;
+  padding: 10px;
 }
 
 #footer {
-  position: fixed;
   bottom: 0px;
-  left: 0px;
-  height: 90px;
+  height: 80px;
   background-color: #ccc;
   text-align: right;
-  width: 100%;
+  width: 950px;
+  padding: 10px;
 }
 
-#photo {
+img {
   float: right;
-  margin: 0 0 1em 1em;
+  height: 200px;
+  width: 200px;
 }
 
 button {
@@ -108,8 +113,10 @@ button:active {
    }
 
 body {
-  margin-top: 150px;
-  margin-bottom: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  height: 300px;
 }
 
 .hidden{
@@ -128,4 +135,4 @@ clear: both;
  
 .clearfix {
 *zoom: 1;
-}
+}bottom: 0px;

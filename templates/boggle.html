@@ -9,11 +9,42 @@
 
 {% block content %}
 		<script type = "text/javascript">
-		
+
 		var showSolutions = function() {
 			$("#machine").removeClass("hidden");
+			$("#ss").addClass("hidden");
+			document.getElementById("boggleBox").style.height="2200px";
+			$("#try").addClass("hidden");
+			$("#answer").addClass("hidden");
+			$("#ngButton").removeClass("hidden");
 		};
+
+		var checkAnswer = function(word) {
+			var userlist = [];
+			var p = document.createElement('p');
+			var machinelist = [ {% for s in sol %}"{{ s }}", {% endfor %}""];
+		
+			word = document.getElementById("answer").value;
+
+			for(index = 0; index < machinelist.length; index++) {
+				if ( word == machinelist[index]) {
+					p.textContent = word;
+					document.getElementById("user").appendChild(p);
+				}
+			}
+		}; 
 		</script>
+
+		<div id="boggleBox">
+
+		<div id="user" class="column">
+
+		<p> </p>
+
+		</div>
+
+
+		<div class="column">
 
 		<div id="board">
 		<table>
@@ -24,20 +55,25 @@
 			{% endfor %}
 		</tr>		
 		{% endfor %}
-		</table>
-	
-		<br>
+		</table>	
 
+		</div>	
+		
+		<input id="answer" type="text">
 
-		<form action="/boggle" method="post">
-			<input type="hidden" value="whatever"></input>
-		 	<input type="submit" value="New game"></input>
+		<button id="try" onclick = "checkAnswer()">Check Answer</button>
+
+		<form id="newGame" class="hidden" action="/boggle" method="post">
+		 	<input type="hidden" value="unknown"> </input>
+			<input type="submit" value="New Game"> </input>
 		</form>
+
+		<button id="ngButton" class="hidden" type="submit" form="newGame" value="New Game">New Game</button>
 
 		</div>
 
-		<button onclick = "showSolutions()">Show solutions</button>
-		<div id="machine" class ="hidden">
+		<div id="machine" class ="hidden" class="column">
+
 		{% for s in sol %}
 		<p>
 		{{ s }}
@@ -45,11 +81,8 @@
 		{% endfor %}
 		</div>
 
-		<div id="user">
-
-		</div>
-
+		<button id="ss" onclick = "showSolutions()">Show Solutions</button>
 		
-
+		</div>
 		
 {% endblock %}

@@ -9,20 +9,21 @@
 
 {% block content %}
 		<div class="space">
+
+		{% if noError %}
 		<p>
-			The following is an sample output made by using an excerpt from Metamorphosis by Franz Kafka, and simlarity value of 7, and an output length of 100.
+			Here is your resulting text:  
 		</p>
+		{% endif %}
 
 		<p>
 			{{ re }}
 		</p>
+	
+		<br><br><br>
 
 		<p>
-			If you would like to use your own source text with diffrent values, then upload a file of your chooseing.  
-		</p>
-
-		<p>
-			BEWARE: High values and long input texts (example full books with length outputs of over 1000) will take too long time to process.  
+			Would you like to try another? 
 		</p>
 
 		<form action="/output" enctype="multipart/form-data" method="post">
