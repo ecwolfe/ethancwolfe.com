@@ -32,11 +32,15 @@
 #boggleBox {
   height: 400px;
 }
-
 .space {
   height: 400px;
 }
-
+.strong {
+  font-weight: bold;
+}
+.cent{
+  text-align: center;
+}
 .output {
   background-color: #B8EEFF;
   padding: 5px;

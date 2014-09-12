@@ -10,10 +10,8 @@
 {% block content %}
 		<div class="space">
 		<p>
-			<a href="/monkey">Markov Monkey</a> - A random text generator that produces new text based off a source text.
-		</p>
-		<p>
-			<a href="/boggle">Boggle Solver</a> - Play Boggle against a machine.
+			<a href="/monkey">Markov Monkey</a> - A pesudo random text generator that uses Markov chains and a value of similarity to generate new text.  It does so by using the value of simlarity as a length for a random selected sequence of characters in your file that we will call the Seed.  Then it scans through the text finding all the places in the text where there is a matches the Seed. Then it changes the Seed by dropping the first character, and adding the next charactor from a randomly selected places in the text mention earlier. The added letter is also added to the new random text, and the process is repeated until the new text is as long as the user demands. <br> <br>
+			<a href="/boggle">Boggle Solver</a> - A Boggle solver that uses recursive algortihm that checks all the possible walks on the game board.  Also it checks each of those walks as a possible solution agaisnt a dictionary of allowed words. This is achived rather quickly, thanks to the dictionary being an order list, which allows the use of a binary search. <br>   
 		</p>
 		</div>
 {% endblock %}
