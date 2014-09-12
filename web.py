@@ -41,8 +41,22 @@ def boggle():
 @app.route('/monkey', methods= ['GET','POST'])
 def markov():
 	fIn = open("Meta-excerpt.txt", 'r')
-	output = monkey.monkeyWrite(7,100,fIn)
-	return render_template('monkey.html', re = output)
+	kval = 7
+	ulength = 100
+	if request.method=='POST':
+		kval = request.form['kval'] 
+		ulength = request.form['ulength']		
+		try:
+			kval = int(kval)
+			ulength = int(ulength)
+			if kval < 1 or ulength < 1:
+				output = "Opps! Let me explain better: \nInput values must be greater than 0."
+				return render_template('monkey.html', re = output,  k = kval, l = ulength, noError=False)
+		except ValueError:
+			output = "Opps! Let me explain better: \n Input values must be numbers."
+			return render_template('monkey.html', re = output, k = kval, l = ulength, noError=False)
+	output = monkey.monkeyWrite(kval,ulength,fIn)
+	return render_template('monkey.html', re = output, k = kval, l = ulength, noError=True)
 
 @app.route('/output', methods= ['GET','POST'])
 def output():
@@ -54,10 +68,10 @@ def output():
 			k = int(k)
 			length = int(length)
 			if k < 1 or length < 1:
-				output = "Opps! Let me explain better: \n Similarity should be a number from 1 to 10, \n Length should be how long you want the new document to be (100-500)"
+				output = "Opps! Let me explain better: \n Input values must be greater than 0."
 				return render_template('output.html', re = output, noError = False)
 		except ValueError:
-			output = "Opps! Let me explain better: \n Input values must be numbers"
+			output = "Opps! Let me explain better: \n Input values must be numbers."
 			return render_template('output.html', re = output, noError = False)
 		output = "Oh Dear! Something has gone completely wrong."
 		exten = fil.filename
@@ -65,7 +79,7 @@ def output():
 			#fil = secure_filename(fil.filename)
 			output = monkey.monkeyWrite(int(k),int(length),fil)
 		else:
-			output = "Opps! Let me explain better: \n Your file must end in .txt"
+			output = "Opps! Let me explain better: \n Your file must end in .txt."
 			return render_template('output.html', re = output, noError = False)
 		
 	return render_template('output.html', re = output, noError = True)

@@ -37,6 +37,15 @@
   height: 400px;
 }
 
+.output {
+  background-color: #B8EEFF;
+  padding: 5px;
+}
+.mistake {
+  background-color: #E86968;
+  padding: 5px;
+}
+
 #content {
   width: 900px;
   margin-left: auto;

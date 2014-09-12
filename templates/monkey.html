@@ -9,21 +9,50 @@
 
 {% block content %}
 		<div class="space">
+
+		{% if noError %}
 		<p>
-			The following is an sample output made by using an excerpt from Metamorphosis by Franz Kafka, and simlarity value of 7, and an output length of 100.
+			The following is the output from the sample file with a value of similarity of {{ k }}, and a length of {{ l }}:
+		</p>
+		<div class="output">
+		<p>
+			{{ re }}
+		</p>
+		</div>
+
+		<p>
+		
+		{% else %}
+		<p>
+			Something went wrong!  
 		</p>
 
+		<div class="mistake">
 		<p>
 			{{ re }}
 		</p>
 
+		</div>
+
+		{% endif %}
+		
 		<p>
-			If you would like to use your own source text with diffrent values, then upload a file of your chooseing.  
+			If you would like to use sample source text but choose your own values the use the following:  
+		</p>
+		
+		<form action="/monkey" enctype="multipart/form-data" method="post">
+		  A value of simlarity <input type="text" name="kval" size="1"></input>
+		  Length of new text <input type="text" name="ulength" size="5"></input>
+		  <input type="submit" value="Submit"></input>
+		</form>
+	
+		<p>
+			If you would like to use your own source text with your choice of values, then use the following form:
+
+			However beware as long input text and/or texts with a large length output may take a long time to process.  
 		</p>
 
 		<p>
-			BEWARE: High values and long input texts (example full books with length outputs of over 1000) will take too long time to process.  
-		</p>
 
 		<form action="/output" enctype="multipart/form-data" method="post">
 		  Choose a .txt file <input type="file" name="fileIn" size="30"></input><br>

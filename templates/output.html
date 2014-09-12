@@ -14,11 +14,27 @@
 		<p>
 			Here is your resulting text:  
 		</p>
-		{% endif %}
 
+		<div class="output">
 		<p>
 			{{ re }}
 		</p>
+
+		</div>
+		{% else %}
+		<p>
+			Something went wrong!  
+		</p>
+
+		<div class="mistake">
+		<p>
+			{{ re }}
+		</p>
+
+		</div>
+
+		{% endif %}
+		
 	
 		<br><br><br>
 
