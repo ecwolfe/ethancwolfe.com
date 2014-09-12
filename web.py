@@ -84,4 +84,4 @@ def output():
 		
 	return render_template('output.html', re = output, noError = True)
 
-app.run(debug=True)
+app.run()
