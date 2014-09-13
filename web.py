@@ -52,7 +52,7 @@ def markov():
 			if kval < 1 or ulength < 1:
 				output = "Opps! Let me explain better: \nInput values must be greater than 0."
 				return render_template('monkey.html', re = output,  k = kval, l = ulength, noError=False)
-			elif kval > 12 or ulength > 2000:
+			elif kval > 12 or ulength > 1000:
 				output = "Opps! Let me explain better: \nInput values must be less than 12 or 2000."
 				return render_template('monkey.html', re = output,  k = kval, l = ulength, noError=False)
 		except ValueError:
@@ -73,7 +73,7 @@ def output():
 			if k < 1 or length < 1:
 				output = "Opps! Let me explain better: \n Input values must be greater than 0."
 				return render_template('output.html', re = output, noError = False)
-			elif k > 12 or length > 2000:
+			elif k > 12 or length > 1000:
 				output = "Opps! Let me explain better: \nInput values must be less than 12 or 2000."
 				return render_template('monkey.html', re = output,  k = kval, l = ulength, noError=False)
 		except ValueError:

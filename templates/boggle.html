@@ -13,18 +13,18 @@
 		var showSolutions = function() {
 			$("#machine").removeClass("hidden");
 			$("#ss").addClass("hidden");
-			document.getElementById("boggleBox").style.height="2200px";
 			$("#try").addClass("hidden");
 			$("#answer").addClass("hidden");
 			$("#ngButton").removeClass("hidden");
 		};
 
-		var checkAnswer = function(word) {
+		var checkAnswer = function() {
 			var userlist = [];
 			var p = document.createElement('p');
 			var machinelist = [ {% for s in sol %}"{{ s }}", {% endfor %}""];
 		
-			word = document.getElementById("answer").value;
+			var wordraw = document.getElementById("answer").value;
+			var word = wordraw.toUpperCase();	
 
 			for(index = 0; index < machinelist.length; index++) {
 				if ( word == machinelist[index]) {
@@ -86,5 +86,7 @@
 		<button id="ss" onclick = "showSolutions()">Show Solutions</button>
 		
 		</div>
+
+		<div class="clearfix"></div>
 		
 {% endblock %}

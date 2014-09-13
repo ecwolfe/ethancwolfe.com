@@ -36,7 +36,7 @@
   height: 400px;
 }
 .strong {
-  font-weight: bold;
+  font: bold;
 }
 .cent{
   text-align: center;
